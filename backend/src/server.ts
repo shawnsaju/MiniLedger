@@ -1,16 +1,27 @@
-import express from 'express';
+import { createApp } from './app';
+import { loadConfig } from './config';
+import { createPool, migrate } from './db';
 
-const app = express();
-const PORT = 4000;
+async function main() {
+  const config = loadConfig();
+  const pool = createPool(config.databaseUrl);
+  await migrate(pool); // creates tables on first run
 
-// Lets the server read JSON sent in request bodies
-app.use(express.json());
+  const app = createApp({ db: pool, config });
+  // Bind to all interfaces so a phone on the same Wi-Fi can reach the API.
+  const server = app.listen(config.port, '0.0.0.0', () => {
+    console.log(`MiniLedger API listening on http://0.0.0.0:${config.port}`);
+    console.log('OTPs are printed in this log (mock SMS).');
+  });
 
-// A "route": when someone visits GET /health, run this function
-app.get('/health', (req, res) => {
-  res.json({ ok: true });
-});
+  const shutdown = () => {
+    server.close(() => pool.end().finally(() => process.exit(0)));
+  };
+  process.on('SIGINT', shutdown);
+  process.on('SIGTERM', shutdown);
+}
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+main().catch((err) => {
+  console.error('Failed to start:', err);
+  process.exit(1);
 });

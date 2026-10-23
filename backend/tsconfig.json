@@ -7,7 +7,8 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
     "target": "esnext",
     // "types": [],
     // For nodejs:
@@ -41,7 +42,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
+  "include": ["src/**/*.ts"],
 }
-
-
 
