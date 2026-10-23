@@ -61,5 +61,5 @@ Scan the QR code with Expo Go. The app finds the backend automatically: Expo Go 
 
 ```bash
 cd backend
-npm test            # 35 tests; no database setup needed (see below)
+npm test            # 35 tests; no database setup needed 
 ```
