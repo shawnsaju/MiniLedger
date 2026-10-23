@@ -14,5 +14,5 @@ This project was built as a technical assessment submission.
 ## Tech Stack
 
 *   **Frontend:** React Native, Expo Go, TypeScript
-*   **Backend:** Node.js, Express, TypeScript, Prisma/TypeORM (or standard pg-client)
+*   **Backend:** Node.js, Express, TypeScript, pg-client
 *   **Database:** PostgreSQL
