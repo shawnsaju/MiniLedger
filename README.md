@@ -11,7 +11,7 @@ This project was built as a technical assessment submission.
 *   **Intelligent Financial Summaries:** A real-time data overview component tracking Total Lent, Total Repaid, and highlighting Overdue Amounts.
 *   **Visual Status Indicators:** Automatic highlighting and visual sorting for overdue transactions to ensure high-priority entries are instantly visible.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 *   **Frontend:** React Native, Expo Go, TypeScript
 *   **Backend:** Node.js, Express, TypeScript, Prisma/TypeORM (or standard pg-client)
