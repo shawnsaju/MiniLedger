@@ -16,6 +16,7 @@ This project was built as a technical assessment submission.
 *   **Frontend:** React Native, Expo Go, TypeScript
 *   **Backend:** Node.js, Express, TypeScript, pg-client
 *   **Database:** PostgreSQL
+*   **Unit Testing & API Testing:** Vitest, Supertest
 
 ## Run it
 
